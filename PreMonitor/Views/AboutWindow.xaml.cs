@@ -46,7 +46,7 @@ namespace PreMonitor.Views
                 _httpClient.DefaultRequestHeaders.Add("User-Agent", "PreMonitor/2.0.0");
                 
                 // 从GitHub API获取最新release信息
-                string apiUrl = "https://api.github.com/repos/PrelinaMontelli/Edge-Monitor/releases/latest";
+                string apiUrl = "https://api.github.com/repos/PrelinaMontelli/PreMonitor/releases/latest";
                 
                 var response = await _httpClient.GetAsync(apiUrl);
                 
@@ -83,7 +83,7 @@ namespace PreMonitor.Views
                             // 打开GitHub release页面
                             Process.Start(new ProcessStartInfo
                             {
-                                FileName = "https://github.com/PrelinaMontelli/Edge-Monitor/releases/tag/Release",
+                                FileName = "https://github.com/PrelinaMontelli/PreMonitor/releases/tag/Release",
                                 UseShellExecute = true
                             });
                         }
@@ -110,7 +110,7 @@ namespace PreMonitor.Views
                     {
                         Process.Start(new ProcessStartInfo
                         {
-                            FileName = "https://github.com/PrelinaMontelli/Edge-Monitor/releases",
+                            FileName = "https://github.com/PrelinaMontelli/PreMonitor/releases",
                             UseShellExecute = true
                         });
                     }
@@ -137,14 +137,14 @@ namespace PreMonitor.Views
                     {
                         Process.Start(new ProcessStartInfo
                         {
-                            FileName = "https://github.com/PrelinaMontelli/Edge-Monitor/releases",
+                            FileName = "https://github.com/PrelinaMontelli/PreMonitor/releases",
                             UseShellExecute = true
                         });
                     }
                     catch (Exception browserEx)
                     {
                         MessageBox.Show(
-                            $"无法打开浏览器: {browserEx.Message}\n\n请手动访问: https://github.com/PrelinaMontelli/Edge-Monitor/releases",
+                            $"无法打开浏览器: {browserEx.Message}\n\n请手动访问: https://github.com/PrelinaMontelli/PreMonitor/releases",
                             "错误",
                             MessageBoxButton.OK,
                             MessageBoxImage.Error);
