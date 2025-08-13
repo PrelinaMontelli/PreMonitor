@@ -1,0 +1,67 @@
+<Window x:Class="PreMonitor.Views.RulePickerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="添加规则" Height="520" Width="780" WindowStartupLocation="CenterOwner"
+    UseLayoutRounding="True" SnapsToDevicePixels="True"
+    TextOptions.TextFormattingMode="Display" TextOptions.TextRenderingMode="ClearType">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="10">
+            <TextBlock Text="筛选：" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox x:Name="FilterBox" Width="280" VerticalAlignment="Center" TextChanged="FilterBox_TextChanged"/>
+            <TextBlock Text="（可输入进程名/窗口标题筛选）" VerticalAlignment="Center" Margin="8,0,0,0" Foreground="Gray"/>
+        </StackPanel>
+
+        <!-- 操作按钮移动到筛选框下方，横向小按钮 -->
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="10,0,10,8">
+            <Button Content="刷新" Height="Auto" MinWidth="72" MinHeight="30" Padding="12,4" VerticalContentAlignment="Center" Margin="0,0,8,0" Click="Refresh_Click" Style="{StaticResource SecondaryButtonStyle}"/>
+            <Button Content="取消" Height="Auto" MinWidth="72" MinHeight="30" Padding="12,4" VerticalContentAlignment="Center" Margin="0,0,8,0" Click="OnCancel" Style="{StaticResource SecondaryButtonStyle}"/>
+            <Button Content="添加所选" Height="Auto" MinWidth="88" MinHeight="30" Padding="14,4" VerticalContentAlignment="Center" Click="OnAccept" Style="{StaticResource PrimaryButtonStyle}"/>
+        </StackPanel>
+
+    <TabControl x:Name="Tabs" Margin="10">
+        <TabItem Header="进程">
+                <Grid>
+            <ListView x:Name="ProcsList" MouseDoubleClick="OnAccept" SelectionMode="Extended">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="32">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding Icon}" Width="16" Height="16"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="进程名" Width="220" DisplayMemberBinding="{Binding ProcessName}"/>
+                                <GridViewColumn Header="PID" Width="80" DisplayMemberBinding="{Binding Pid}"/>
+                                <GridViewColumn Header="可执行路径" Width="360" DisplayMemberBinding="{Binding ExecutablePath}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+        <TabItem Header="窗口">
+                <Grid>
+            <ListView x:Name="WinsList" MouseDoubleClick="OnAccept" SelectionMode="Extended">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="32">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding Icon}" Width="16" Height="16"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="标题" Width="260" DisplayMemberBinding="{Binding Title}"/>
+                                <GridViewColumn Header="进程名" Width="180" DisplayMemberBinding="{Binding ProcessName}"/>
+                                <GridViewColumn Header="PID" Width="80" DisplayMemberBinding="{Binding Pid}"/>
+                                <GridViewColumn Header="可执行路径" Width="260" DisplayMemberBinding="{Binding ExecutablePath}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        
+    </DockPanel>
+</Window>

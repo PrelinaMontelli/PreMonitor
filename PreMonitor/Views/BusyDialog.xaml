@@ -1,0 +1,12 @@
+<Window x:Class="PreMonitor.Views.BusyDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    WindowStyle="ToolWindow" ResizeMode="NoResize" SizeToContent="WidthAndHeight" 
+    WindowStartupLocation="CenterOwner" Title="处理中" Height="150" Width="350">
+    <Border Background="White" Padding="16">
+        <StackPanel>
+            <TextBlock x:Name="MessageText" Text="请稍候，PreMonitor 正在整理程序列表…" Margin="0,0,0,12" TextWrapping="Wrap"/>
+            <ProgressBar IsIndeterminate="True" Height="16" MinWidth="320"/>
+        </StackPanel>
+    </Border>
+</Window>

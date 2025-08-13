@@ -1,0 +1,37 @@
+<Window x:Class="PreMonitor.Services.InputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="输入" 
+        Height="150" 
+        Width="350"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Label x:Name="PromptLabel" Grid.Row="0" Content="请输入:"/>
+        <TextBox x:Name="InputTextBox" Grid.Row="1" Margin="0,5"/>
+        
+        <StackPanel Grid.Row="3" 
+                   Orientation="Horizontal" 
+                   HorizontalAlignment="Right"
+                   Margin="0,10,0,0">
+            <Button Content="确定" 
+                   Width="75" 
+                   Height="25" 
+                   Margin="5,0"
+                   IsDefault="True"
+                   Click="OkButton_Click"/>
+            <Button Content="取消" 
+                   Width="75" 
+                   Height="25"
+                   IsCancel="True"
+                   Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -18,4 +18,4 @@ To view a copy of this license, visit:
 https://creativecommons.org/licenses/by-nc/4.0/
 
 Original Author: Prelina Montelli
-Project: Edge Monitor - A program to monitor and terminate Microsoft Edge processes when running abnormally in the background.
+Project: PreMonitor - A multi-application resource monitor that enforces configurable CPU, Memory, Disk, GPU, and Network thresholds with optional sustained exceed-then-terminate behavior.
